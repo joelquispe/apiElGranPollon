@@ -5,9 +5,9 @@ import entity.User;
 import java.util.Collection;
 
 public interface UserService {
-    public abstract void insert(User producto);
-    public abstract void update(User producto);
-    public abstract void delete(Integer productoId);
-    public abstract User findById(Integer productoId);
+    public abstract void insert(User user);
+    public abstract void update(User user);
+    public abstract void delete(Integer userId);
+    public abstract User findById(Integer userId);
     public abstract Collection<User> findAll();
 }
