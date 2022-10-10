@@ -1,4 +1,4 @@
-package entity;
+package com.example.apielgranpollon.entity;
 
 import lombok.Data;
 

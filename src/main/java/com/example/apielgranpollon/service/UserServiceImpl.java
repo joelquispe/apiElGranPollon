@@ -1,11 +1,13 @@
-package service;
+package com.example.apielgranpollon.service;
 
-import entity.User;
+import com.example.apielgranpollon.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import repository.UserRepository;
+import com.example.apielgranpollon.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
+@Service
 public class UserServiceImpl implements  UserService {
 
     @Autowired

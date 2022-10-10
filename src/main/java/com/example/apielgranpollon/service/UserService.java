@@ -1,7 +1,6 @@
-package service;
+package com.example.apielgranpollon.service;
 
-import entity.User;
-
+import com.example.apielgranpollon.entity.User;
 import java.util.Collection;
 
 public interface UserService {
