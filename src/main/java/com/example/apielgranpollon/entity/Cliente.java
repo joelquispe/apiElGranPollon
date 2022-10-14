@@ -1,14 +1,13 @@
 package com.example.apielgranpollon.entity;
 
 import lombok.Data;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
-@Entity(name = "motorized")
-@Table(name = "motorized")
-public class Motorized implements Serializable {
+@Entity(name = "cliente")
+@Table(name ="cliente")
+public class Cliente implements Serializable{
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -17,23 +16,18 @@ public class Motorized implements Serializable {
     private String name;
     @Column(name="lastname")
     private String lastname;
+    @Column(name="age")
+    private String age;
+    @Column(name="email")
+    private String email;
+    @Column(name="password")
+    private String password;
     @Column(name="dni")
     private String dni;
     @Column(name="phone")
     private String phone;
-    @Column(name="placa")
-    private String placa;
-    @Column(name="soat")
-    private String soat;
-    @Column(name="age")
-    private String age;
-
-    @ManyToOne
-    @JoinColumn(name = "motorizedStatus_id")
-    private MotorizedStatus motorizedStatus;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
-
 }
