@@ -46,4 +46,10 @@ public class ClienteServiceImpl implements ClienteService{
         return repository.findAll();
     }
 
+    @Transactional(readOnly = true)
+    @Override
+    public Cliente findByNameAndPassword(String name, String password) {
+        return repository.findByNameAndPassword(name,password);
+    }
+
 }

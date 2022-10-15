@@ -33,4 +33,8 @@ public class Order implements Serializable {
     @JoinColumn(name = "orderstatus_id")
     private OrderStatus orderStatus;
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
+
 }

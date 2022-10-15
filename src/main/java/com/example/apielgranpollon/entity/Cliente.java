@@ -27,7 +27,4 @@ public class Cliente implements Serializable{
     @Column(name="phone")
     private String phone;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
 }

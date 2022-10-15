@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/cliente")
@@ -75,6 +76,17 @@ public class ClienteController {
         }
 
         return new ResponseEntity<>("¡Cliente no existe!",HttpStatus.NOT_FOUND);
+    }
+
+    @RequestMapping(value="/buscar",method = RequestMethod.POST)
+    public ResponseEntity<?> buscar_Name_Password(@RequestParam Map<String,String> requestParams){
+        String name = requestParams.get("name");
+        String password = requestParams.get("password");
+        Cliente clienteDb = clienteService.findByNameAndPassword(name,password);
+        if(clienteDb!= null){
+            return new ResponseEntity<>(clienteDb,HttpStatus.FOUND);
+        }
+        return  new ResponseEntity<>("Cliente no existe",HttpStatus.NOT_FOUND);
     }
 
 }
