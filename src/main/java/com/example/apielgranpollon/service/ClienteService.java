@@ -10,5 +10,5 @@ public interface ClienteService {
     public abstract void delete(Integer clienteId);
     public abstract Cliente findById(Integer clienteId);
     public abstract Collection<Cliente> findAll();
-    public abstract  Cliente findByNameAndPassword(String name,String password);
+    public abstract  Cliente findByEmailAndPassword(String email,String password);
 }

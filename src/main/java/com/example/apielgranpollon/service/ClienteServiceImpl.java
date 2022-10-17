@@ -48,8 +48,8 @@ public class ClienteServiceImpl implements ClienteService{
 
     @Transactional(readOnly = true)
     @Override
-    public Cliente findByNameAndPassword(String name, String password) {
-        return repository.findByNameAndPassword(name,password);
+    public Cliente findByEmailAndPassword(String email, String password) {
+        return repository.findByEmailAndPassword(email,password);
     }
 
 }
