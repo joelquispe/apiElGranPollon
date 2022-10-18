@@ -1,8 +1,11 @@
 package com.example.apielgranpollon.entity;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 @Data
 @Entity(name = "cliente")
@@ -16,15 +19,16 @@ public class Cliente implements Serializable{
     private String name;
     @Column(name="lastname")
     private String lastname;
-    @Column(name="age")
-    private String age;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @Column(name="data_of_Birth")
+    private Date dataOfBirth;
     @Column(name="email")
     private String email;
     @Column(name="password")
     private String password;
-    @Column(name="dni")
-    private String dni;
     @Column(name="phone")
     private String phone;
+    @Column(name="address")
+    private String address;
 
 }
