@@ -20,8 +20,8 @@ public class Cliente implements Serializable{
     @Column(name="lastname")
     private String lastname;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
-    @Column(name="data_of_Birth")
-    private Date dataOfBirth;
+    @Column(name="date_of_Birth")
+    private Date dateOfBirth;
     @Column(name="email")
     private String email;
     @Column(name="password")
