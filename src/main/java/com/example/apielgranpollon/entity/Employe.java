@@ -16,6 +16,15 @@ public class Employe implements Serializable {
     private Integer id;
     @Column(name="name")
     private String name;
+    @Column(name="lastname")
+    private String lastname;
+    @Column(name="phone")
+    private String phone;
+    @Column(name="dni")
+    private String dni;
+    @Column(name="datebirth")
+    private String datebirth;
+
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
