@@ -1,11 +1,7 @@
 package com.example.apielgranpollon.entity;
 
 import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -18,5 +14,7 @@ public class User {
     private String password;
     private String token;
 
-
+    @ManyToOne
+    @JoinColumn(name = "rol_id")
+    private Rol rol;
 }
