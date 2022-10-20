@@ -14,6 +14,6 @@ public class PlatesDetails {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @JoinColumn(name = "plates_id")
+    private Plates plates;
 }
