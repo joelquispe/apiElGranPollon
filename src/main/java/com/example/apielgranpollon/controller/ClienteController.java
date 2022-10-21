@@ -78,7 +78,7 @@ public class ClienteController {
         return new ResponseEntity<>("¡Cliente no existe!",HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping(value="/buscar",method = RequestMethod.GET)
+    @RequestMapping(value="/buscar",method = RequestMethod.POST)
     public ResponseEntity<?> buscar_Name_Password(@RequestParam Map<String,String> requestParams){
         String email = requestParams.get("email");
         String password = requestParams.get("password");

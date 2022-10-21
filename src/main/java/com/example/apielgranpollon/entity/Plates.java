@@ -23,6 +23,8 @@ public class Plates implements Serializable {
         private  String description;
         @Column(name = "status")
         private String status;
+        @Column(name = "image")
+        private String image;
 
         @ManyToOne
         @JoinColumn(name = "categoria_id")
