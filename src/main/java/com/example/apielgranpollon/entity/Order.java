@@ -47,7 +47,6 @@ public class Order implements Serializable {
     @JoinColumn(name = "plates_id")
     private Plates plates;
 
-    @OneToMany(mappedBy = "order")
-    private OrderDetails ordersDetails ;
+
 
 }
