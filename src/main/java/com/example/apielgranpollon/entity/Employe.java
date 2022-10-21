@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 @Data
 @Entity(name = "employe")
@@ -24,9 +25,10 @@ public class Employe implements Serializable {
     @Column(name="dni")
     private String dni;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
-    @Column(name="datebirth")
-    private String datebirth;
-
+    @Column(name="date_of_Birth")
+    private Date datebirth;
+    @Column(name="typeUser")
+    private int type_user;
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;

@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Set;
 
 @Data
 @Entity(name = "cliente")
@@ -28,7 +29,12 @@ public class Cliente implements Serializable{
     private String password;
     @Column(name="phone")
     private String phone;
+    @Column(name="district")
+    private String district;
     @Column(name="address")
     private String address;
+    @Column(name="typeUser")
+    private int type_user;
+
 
 }

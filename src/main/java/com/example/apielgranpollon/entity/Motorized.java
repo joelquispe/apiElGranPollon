@@ -1,9 +1,11 @@
 package com.example.apielgranpollon.entity;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 @Data
 @Entity(name = "motorized")
@@ -25,8 +27,12 @@ public class Motorized implements Serializable {
     private String placa;
     @Column(name="soat")
     private String soat;
-    @Column(name="age")
-    private String age;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @Column(name="date_of_Birth")
+    private Date datebirth;
+
+    @Column(name="typeUser")
+    private int type_user;
 
     @ManyToOne
     @JoinColumn(name = "motorizedStatus_id")

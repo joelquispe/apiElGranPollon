@@ -16,9 +16,9 @@ public class ShoppingCart {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     @Column(name="amount")
-    private String amount;
+    private int amount;
     @Column(name="precio")
-    private String precio;
+    private double precio;
 
     @ManyToOne
     @JoinColumn(name = "plates_id")

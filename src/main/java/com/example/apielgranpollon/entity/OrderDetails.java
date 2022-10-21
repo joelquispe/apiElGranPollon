@@ -3,12 +3,11 @@ package com.example.apielgranpollon.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Data
 @Entity(name = "orderdetails")
 @Table(name ="orderdetails")
-public class OrdenDetails {
+public class OrderDetails {
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -18,9 +17,7 @@ public class OrdenDetails {
     @Column(name="quantity")
     private Double quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "plates_id")
-    private Plates plates;
+
 
     @ManyToOne
     @JoinColumn(name = "order_id")
