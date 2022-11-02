@@ -24,6 +24,8 @@ public class Order implements Serializable {
     @Column(name="estatus")
     private String estatus;
 
+
+
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     @Column(name="dateDelivery")
     private Date dateDelivery;

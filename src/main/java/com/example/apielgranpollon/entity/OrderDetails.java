@@ -17,7 +17,9 @@ public class OrderDetails {
     @Column(name="quantity")
     private Double quantity;
 
-
+    @ManyToOne
+    @JoinColumn(name = "motorized_id")
+    private Motorized motorized;
 
     @ManyToOne
     @JoinColumn(name = "order_id")

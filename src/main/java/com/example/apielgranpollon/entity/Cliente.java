@@ -33,8 +33,7 @@ public class Cliente implements Serializable{
     private String district;
     @Column(name="address")
     private String address;
-    @Column(name="typeUser")
-    private int type_user;
+
 
 
 }

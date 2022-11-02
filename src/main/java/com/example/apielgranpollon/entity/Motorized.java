@@ -19,6 +19,10 @@ public class Motorized implements Serializable {
     private String name;
     @Column(name="lastname")
     private String lastname;
+    @Column(name = "email")
+    private String email;
+    @Column(name="password")
+    private String password;
     @Column(name="dni")
     private String dni;
     @Column(name="phone")
@@ -31,15 +35,12 @@ public class Motorized implements Serializable {
     @Column(name="date_of_Birth")
     private Date datebirth;
 
-    @Column(name="typeUser")
-    private int type_user;
+
 
     @ManyToOne
     @JoinColumn(name = "motorizedStatus_id")
     private MotorizedStatus motorizedStatus;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+
 
 }

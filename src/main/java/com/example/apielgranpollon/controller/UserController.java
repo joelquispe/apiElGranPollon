@@ -1,5 +1,6 @@
 package com.example.apielgranpollon.controller;
 
+import com.example.apielgranpollon.entity.Cliente;
 import com.example.apielgranpollon.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.apielgranpollon.service.UserService;
 
 import java.util.Collection;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
@@ -75,5 +77,16 @@ public class UserController {
         }
 
         return new ResponseEntity<>("¡User no existe!",HttpStatus.NOT_FOUND);
+    }
+
+    @RequestMapping(value="/buscar",method = RequestMethod.POST)
+    public ResponseEntity<?> buscar_username_Password(@RequestParam Map<String,String> requestParams){
+        String username = requestParams.get("username");
+        String password = requestParams.get("password");
+        User usernameDb = userService.findByUsernameAndPassword(username,password);
+        if(usernameDb != null){
+            return new ResponseEntity<>(usernameDb,HttpStatus.FOUND);
+        }
+        return  new ResponseEntity<>("User no existe",HttpStatus.NOT_FOUND);
     }
 }

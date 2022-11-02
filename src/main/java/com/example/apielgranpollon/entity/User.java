@@ -12,13 +12,10 @@ public class User {
     private Integer id;
     private String username;
     private String password;
-
+    
 
     @ManyToOne
     @JoinColumn(name = "rol_id")
     private Rol rol;
 
-    @OneToOne
-    @JoinColumn(name = "token_id",unique = true,referencedColumnName = "id")
-    private TokenUser token;
 }

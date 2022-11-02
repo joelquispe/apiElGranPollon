@@ -9,4 +9,6 @@ public interface UserService {
     public abstract void delete(Integer userId);
     public abstract User findById(Integer userId);
     public abstract Collection<User> findAll();
+
+    public abstract  User findByUsernameAndPassword(String username,String password);
 }

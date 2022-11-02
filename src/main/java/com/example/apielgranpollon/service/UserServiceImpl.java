@@ -37,4 +37,9 @@ public class UserServiceImpl implements  UserService {
     public Collection<User> findAll() {
         return userRepository.findAll();
     }
+
+    @Override
+    public User findByUsernameAndPassword(String username, String password) {
+        return userRepository.findByUsernameAndPassword(username,password);
+    }
 }

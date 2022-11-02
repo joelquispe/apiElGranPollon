@@ -16,6 +16,7 @@ public class TokenUser {
     @Column(name = "token")
     private String token;
 
-    @OneToOne(mappedBy = "token")
+    @OneToOne
+    @JoinColumn(name = "user_id",unique = true,referencedColumnName = "id")
     private User user;
 }
