@@ -20,16 +20,14 @@ public class Employe implements Serializable {
     private String name;
     @Column(name="lastname")
     private String lastname;
+    @Column(name="email")
+    private String email;
     @Column(name="phone")
     private String phone;
     @Column(name="dni")
     private String dni;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     @Column(name="date_of_Birth")
-    private Date datebirth;
-    @Column(name="typeUser")
-    private int type_user;
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    private Date dateOfBirth;
+
 }

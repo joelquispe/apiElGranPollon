@@ -33,7 +33,7 @@ public class Motorized implements Serializable {
     private String soat;
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     @Column(name="date_of_Birth")
-    private Date datebirth;
+    private Date dateOfBirth;
 
 
 

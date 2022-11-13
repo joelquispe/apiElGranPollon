@@ -21,21 +21,15 @@ public class Order implements Serializable {
     @Column(name="price")
     private String price;
 
-    @Column(name="estatus")
-    private String estatus;
-
-
+    @Column(name="amount")
+    private int amount;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
-    @Column(name="dateDelivery")
-    private Date dateDelivery;
+    @Column(name="orderDate")
+    private Date orderDate;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    @Column(name="dateOrder")
-    private Date dateOrder;
-
-    @Column(name="destinity")
-    private String destinity;
+    @Column(name="orderAddress")
+    private String orderAddress;
 
     @ManyToOne
     @JoinColumn(name = "orderstatus_id")
@@ -45,9 +39,7 @@ public class Order implements Serializable {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    @ManyToOne
-    @JoinColumn(name = "plates_id")
-    private Plates plates;
+
 
 
 
