@@ -18,29 +18,22 @@ public class Order implements Serializable {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name="price")
+    @Column(name="total")
     private String price;
-
-    @Column(name="amount")
-    private int amount;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     @Column(name="orderDate")
     private Date orderDate;
 
-    @Column(name="orderAddress")
-    private String orderAddress;
-
-    @ManyToOne
-    @JoinColumn(name = "orderstatus_id")
-    private OrderStatus orderStatus;
+    @Column(name="status")
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-
-
-
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 
 }

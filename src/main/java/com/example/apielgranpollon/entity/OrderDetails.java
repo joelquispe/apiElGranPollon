@@ -12,20 +12,16 @@ public class OrderDetails {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    @Column(name="total")
+    @Column(name="price")
     private Double total;
     @Column(name="quantity")
     private Double quantity;
-
-    @ManyToOne
-    @JoinColumn(name = "motorized_id")
-    private Motorized motorized;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "plates_id")
-    private Plates plates;
+    @JoinColumn(name = "products_id")
+    private Product product;
 }
