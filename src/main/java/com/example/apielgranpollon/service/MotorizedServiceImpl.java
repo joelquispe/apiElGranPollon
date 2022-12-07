@@ -45,4 +45,9 @@ public class MotorizedServiceImpl implements MotorizedService{
         return repository.findAll();
     }
 
+    @Override
+    public Motorized findByEmailAndPassword(String email, String password) {
+        return repository.findByEmailAndPassword(email, password);
+    }
+
 }

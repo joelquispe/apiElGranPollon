@@ -43,6 +43,12 @@ public class CartServiceImpl implements CartService {
 
     @Override
     @Transactional(readOnly=true)
+    public Collection<Cart> findByCustomer(Integer idCustomer) {
+        return repository.findByCustomer(idCustomer);
+    }
+
+    @Override
+    @Transactional(readOnly=true)
     public Collection<Cart> findAll() {
         return repository.findAll();
     }

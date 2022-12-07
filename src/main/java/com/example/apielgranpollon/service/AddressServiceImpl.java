@@ -46,4 +46,9 @@ public class AddressServiceImpl implements AddressService {
         return repository.findAll();
     }
 
+    @Override
+    public Collection<Address> findByCustomer(Integer idCustomer) {
+        return repository.findByCustomer(idCustomer);
+    }
+
 }

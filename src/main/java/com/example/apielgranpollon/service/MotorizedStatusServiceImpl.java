@@ -1,6 +1,8 @@
 package com.example.apielgranpollon.service;
 
 import java.util.Collection;
+
+import com.example.apielgranpollon.entity.Motorized;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,5 +46,7 @@ public class MotorizedStatusServiceImpl implements MotorizedStatusService{
     public Collection<MotorizedStatus> findAll() {
         return repository.findAll();
     }
+
+
 
 }

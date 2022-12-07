@@ -1,9 +1,15 @@
 package com.example.apielgranpollon.repository;
 
+import com.example.apielgranpollon.entity.Cart;
 import com.example.apielgranpollon.entity.CreditCard;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.Collection;
 
 @Repository
 public interface CreditCardRepository extends JpaRepository<CreditCard,Integer>{
+    @Query(value="SELECT  * FROM creditcard WHERE cliente_id=?1 ",nativeQuery = true)
+    Collection<CreditCard> findByCustomer (Integer id);
 }

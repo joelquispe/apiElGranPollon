@@ -46,4 +46,9 @@ public class CreditCardServiceImpl implements CreditCardService {
         return repository.findAll();
     }
 
+    @Override
+    public Collection<CreditCard> findByCustomer(Integer idCustomer) {
+        return repository.findByCustomer(idCustomer);
+    }
+
 }

@@ -77,4 +77,16 @@ public class ProductController {
         return new ResponseEntity<>("¡Product no existe!",HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("/buscar/product/{category}")
+    public ResponseEntity<?> buscarPorCategoria(@PathVariable String category)
+    {
+        Collection<Product> productDb =productService.findProductByCategory(category);
+
+        if(productDb.isEmpty()) {
+            return new ResponseEntity<>("¡Lista vacía!", HttpStatus.NO_CONTENT);
+        }
+
+        return new ResponseEntity<>(productDb,HttpStatus.OK);
+    }
+
 }

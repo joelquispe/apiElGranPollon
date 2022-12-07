@@ -1,6 +1,7 @@
 package com.example.apielgranpollon.service;
 
 import com.example.apielgranpollon.entity.Address;
+import com.example.apielgranpollon.entity.CreditCard;
 
 import java.util.Collection;
 
@@ -11,4 +12,5 @@ public interface AddressService {
     public abstract void delete(Integer addressId);
     public abstract Address findById(Integer addressId);
     public abstract Collection<Address> findAll();
+    public abstract Collection<Address> findByCustomer(Integer idCustomer);
 }

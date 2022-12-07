@@ -1,8 +1,12 @@
 package com.example.apielgranpollon.entity;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.util.Collection;
+import java.util.List;
 
 @Data
 @Entity(name = "cart")
@@ -13,14 +17,12 @@ public class Cart {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name="created_ad")
-    private String created_ad;
-
     @Column(name="total")
     private String total;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+
 
 }

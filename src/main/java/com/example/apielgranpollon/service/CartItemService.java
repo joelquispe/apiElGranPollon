@@ -11,4 +11,6 @@ public interface CartItemService {
     public abstract void delete(Integer CartItemId);
     public abstract CartItem findById(Integer CartItemId);
     public abstract Collection<CartItem> findAll();
+    public abstract  void editQuantityItem(String quantity,Integer CartItemId);
+    public abstract  Collection<CartItem> findByCart(Integer id);
 }

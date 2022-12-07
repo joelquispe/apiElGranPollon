@@ -47,4 +47,15 @@ public class CartItemServiceImpl implements CartItemService {
         return repository.findAll();
     }
 
+    @Transactional
+    @Override
+    public void editQuantityItem(String quantity, Integer CartItemId) {
+        repository.editQuantityItem(quantity,CartItemId);
+    }
+
+    @Override
+    public Collection<CartItem> findByCart(Integer id) {
+        return repository.findByCart(id);
+    }
+
 }

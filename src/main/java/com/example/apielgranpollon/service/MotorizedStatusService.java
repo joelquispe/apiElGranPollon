@@ -1,5 +1,7 @@
 package com.example.apielgranpollon.service;
 
+import com.example.apielgranpollon.entity.Cliente;
+import com.example.apielgranpollon.entity.Motorized;
 import com.example.apielgranpollon.entity.MotorizedStatus;
 import java.util.Collection;
 
@@ -10,4 +12,5 @@ public interface MotorizedStatusService {
     public abstract void delete(Integer motorizedStatusId);
     public abstract MotorizedStatus findById(Integer motorizedStatusId);
     public abstract Collection<MotorizedStatus> findAll();
+
 }

@@ -1,5 +1,6 @@
 package com.example.apielgranpollon.controller;
 
+import com.example.apielgranpollon.entity.Cliente;
 import com.example.apielgranpollon.entity.Motorized;
 import com.example.apielgranpollon.service.MotorizedService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/motorized")
@@ -75,6 +77,17 @@ public class MotorizedController {
         }
 
         return new ResponseEntity<>("¡Motorized no existe!",HttpStatus.NOT_FOUND);
+    }
+
+    @RequestMapping(value="/buscar",method = RequestMethod.POST)
+    public ResponseEntity<?> buscar_Name_Password(@RequestParam Map<String,String> requestParams){
+        String email = requestParams.get("email");
+        String password = requestParams.get("password");
+        Motorized motorizedDb = motorizedService.findByEmailAndPassword(email,password);
+        if(motorizedDb!= null){
+            return new ResponseEntity<>(motorizedDb,HttpStatus.FOUND);
+        }
+        return  new ResponseEntity<>("Cliente no existe",HttpStatus.NOT_FOUND);
     }
 
 }

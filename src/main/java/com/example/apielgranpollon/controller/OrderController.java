@@ -2,6 +2,7 @@ package com.example.apielgranpollon.controller;
 
 import com.example.apielgranpollon.entity.Order;
 import com.example.apielgranpollon.service.OrderService;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -75,6 +76,18 @@ public class OrderController {
         }
 
         return new ResponseEntity<>("¡Order no existe!",HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/listar/customer/{id}")
+    public ResponseEntity<?> listar_GET(@PathVariable Integer id)
+    {
+        Collection<Order> orderDb=orderService.findByCustomer(id);
+
+        if(orderDb.isEmpty()) {
+            return new ResponseEntity<>("Lista vacía",HttpStatus.FOUND);
+        }
+
+        return new ResponseEntity<>(orderDb,HttpStatus.NOT_FOUND);
     }
 
 }

@@ -2,6 +2,7 @@ package com.example.apielgranpollon.controller;
 
 
 import com.example.apielgranpollon.entity.Address;
+import com.example.apielgranpollon.entity.CreditCard;
 import com.example.apielgranpollon.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -76,6 +77,17 @@ public class AddressController {
         }
 
         return new ResponseEntity<>("¡Address no existe!",HttpStatus.NOT_FOUND);
+    }
+    @GetMapping("/listar/customer/{id}")
+    public ResponseEntity<?> listar_GET(@PathVariable Integer id)
+    {
+        Collection<Address> addressDb=addressService.findByCustomer(id);
+
+        if(addressDb.isEmpty()) {
+            return new ResponseEntity<>("¡Lista vacía!", HttpStatus.NO_CONTENT);
+        }
+
+        return new ResponseEntity<>(addressDb,HttpStatus.OK);
     }
 
 }

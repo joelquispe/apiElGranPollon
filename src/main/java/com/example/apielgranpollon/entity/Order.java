@@ -19,7 +19,7 @@ public class Order implements Serializable {
     private Integer id;
 
     @Column(name="total")
-    private String price;
+    private String total;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     @Column(name="orderDate")
@@ -36,4 +36,7 @@ public class Order implements Serializable {
     @JoinColumn(name = "address_id")
     private Address address;
 
+    @ManyToOne
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
 }

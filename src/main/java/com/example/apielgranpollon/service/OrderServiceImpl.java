@@ -41,6 +41,12 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     @Transactional(readOnly=true)
+    public Collection<Order> findByCustomer(Integer idCustomer) {
+        return repository.findByCustomer(idCustomer);
+    }
+
+    @Override
+    @Transactional(readOnly=true)
     public Collection<Order> findAll() {
         return repository.findAll();
     }

@@ -21,8 +21,9 @@ public class Cliente implements Serializable{
     @Column(name="lastname")
     private String lastname;
 
-    @Column(name="age")
-    private String age;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @Column(name="dateofbirth")
+    private Date dateofbirth;
 
     @Column(name="email")
     private String email;
@@ -30,10 +31,10 @@ public class Cliente implements Serializable{
     @Column(name="password")
     private String password;
 
-    @Column(name="dni")
-    private String dni;
 
     @Column(name="phone")
     private String phone;
+
+
 
 }

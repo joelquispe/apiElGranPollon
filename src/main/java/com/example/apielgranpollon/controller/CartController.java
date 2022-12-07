@@ -78,4 +78,16 @@ public class CartController {
         return new ResponseEntity<>("¡Cart no existe!",HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("/listar/customer/{id}")
+    public ResponseEntity<?> listar_GET(@PathVariable Integer id)
+    {
+        Collection<Cart> cartDb=cartService.findByCustomer(id);
+
+        if(cartDb.isEmpty()) {
+            return new ResponseEntity<>("¡Lista vacía!", HttpStatus.NO_CONTENT);
+        }
+
+        return new ResponseEntity<>(cartDb,HttpStatus.OK);
+    }
+
 }

@@ -1,6 +1,8 @@
 package com.example.apielgranpollon.service;
 
 import com.example.apielgranpollon.entity.Order;
+import org.aspectj.weaver.ast.Or;
+
 import java.util.Collection;
 
 public interface OrderService {
@@ -9,5 +11,6 @@ public interface OrderService {
     public abstract void update(Order order);
     public abstract void delete(Integer orderId);
     public abstract Order findById(Integer orderId);
+    public abstract  Collection<Order> findByCustomer(Integer idCustomer);
     public abstract Collection<Order> findAll();
 }

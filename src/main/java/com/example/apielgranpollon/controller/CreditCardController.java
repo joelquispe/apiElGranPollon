@@ -1,6 +1,7 @@
 package com.example.apielgranpollon.controller;
 
 
+import com.example.apielgranpollon.entity.Cart;
 import com.example.apielgranpollon.entity.CreditCard;
 import com.example.apielgranpollon.service.CreditCardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,18 @@ public class CreditCardController {
         }
 
         return new ResponseEntity<>("¡CreditCard no existe!",HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/listar/customer/{id}")
+    public ResponseEntity<?> listar_GET(@PathVariable Integer id)
+    {
+        Collection<CreditCard> cardDb=creditCardService.findByCustomer(id);
+
+        if(cardDb.isEmpty()) {
+            return new ResponseEntity<>("¡Lista vacía!", HttpStatus.NO_CONTENT);
+        }
+
+        return new ResponseEntity<>(cardDb,HttpStatus.OK);
     }
 
 }

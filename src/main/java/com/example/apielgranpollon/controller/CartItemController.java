@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/cartItem")
@@ -76,6 +77,24 @@ public class CartItemController {
         }
 
         return new ResponseEntity<>("¡CartItem no existe!",HttpStatus.NOT_FOUND);
+    }
+
+    @PutMapping("/editar/quantity/{CartItemId}")
+    public ResponseEntity<?> editar_quantity(@PathVariable Integer CartItemId, @RequestBody CartItem body)
+    {
+       CartItemService.editQuantityItem(body.getQuantity(),CartItemId);
+        return new ResponseEntity<>("¡CartItem no existe!",HttpStatus.NOT_FOUND);
+    }
+    @GetMapping("/listar/cart/{cartId}")
+    public ResponseEntity<?> listarByCart(@PathVariable Integer cartId)
+    {
+        Collection<CartItem> CartItemsDb=CartItemService.findByCart(cartId);
+
+        if(CartItemsDb.isEmpty()) {
+            return new ResponseEntity<>("¡Lista vacía!", HttpStatus.NO_CONTENT);
+        }
+
+        return new ResponseEntity<>(CartItemsDb,HttpStatus.OK);
     }
 
 }

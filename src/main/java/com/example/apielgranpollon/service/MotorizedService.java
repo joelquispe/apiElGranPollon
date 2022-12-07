@@ -10,4 +10,5 @@ public interface MotorizedService {
     public abstract void delete(Integer motorizedId);
     public abstract Motorized findById(Integer motorizedId);
     public abstract Collection<Motorized> findAll();
+    public abstract Motorized findByEmailAndPassword(String email, String password);
 }
