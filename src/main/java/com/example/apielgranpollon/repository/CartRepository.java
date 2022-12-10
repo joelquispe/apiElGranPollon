@@ -9,6 +9,9 @@ import java.util.Collection;
 
 @Repository
 public interface CartRepository extends JpaRepository<Cart,Integer>{
-    @Query(value="SELECT  * FROM cart WHERE cliente_id=?1 ",nativeQuery = true)
-    Collection<Cart> findByCustomer (Integer id);
+    @Query(value="SELECT  * FROM cart WHERE cliente_id=?1 AND is_in_order=0",nativeQuery = true)
+    Collection<Cart> findByCustomerInOrder (Integer id);
+
+    @Query(value="SELECT  * FROM cart WHERE cliente_id=?1 AND is_in_order=1 limit 1",nativeQuery = true)
+    Cart findByCustomerNotOrder (Integer id);
 }

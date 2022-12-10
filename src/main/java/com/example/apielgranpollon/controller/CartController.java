@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/cart")
@@ -78,10 +79,10 @@ public class CartController {
         return new ResponseEntity<>("¡Cart no existe!",HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/listar/customer/{id}")
-    public ResponseEntity<?> listar_GET(@PathVariable Integer id)
+    @GetMapping("/listar/inOrder/customer/{id}")
+    public ResponseEntity<?> listarInOrder(@PathVariable Integer id,@RequestParam Map<String,String> requestParams)
     {
-        Collection<Cart> cartDb=cartService.findByCustomer(id);
+        Collection<Cart> cartDb=cartService.findByCustomerInOrder(id);
 
         if(cartDb.isEmpty()) {
             return new ResponseEntity<>("¡Lista vacía!", HttpStatus.NO_CONTENT);
@@ -90,4 +91,15 @@ public class CartController {
         return new ResponseEntity<>(cartDb,HttpStatus.OK);
     }
 
+    @GetMapping("/listar/notOrder/customer/{cartId}")
+    public ResponseEntity<?> listarNotOrder(@PathVariable Integer cartId)
+    {
+        Cart cartDb=cartService.findByCustomerNotOrder(cartId);
+
+        if(cartDb!=null) {
+            return new ResponseEntity<>(cartDb,HttpStatus.FOUND);
+        }
+
+        return new ResponseEntity<>("¡Cart no existe!",HttpStatus.NOT_FOUND);
+    }
 }

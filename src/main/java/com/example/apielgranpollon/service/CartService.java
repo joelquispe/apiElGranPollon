@@ -10,6 +10,7 @@ public interface CartService {
     public abstract void update(Cart cart);
     public abstract void delete(Integer shoppingCartId);
     public abstract Cart findById(Integer shoppingCartId);
-    public abstract  Collection<Cart> findByCustomer(Integer idCustomer);
+    public abstract  Collection<Cart> findByCustomerInOrder(Integer idCustomer);
+    public abstract  Cart findByCustomerNotOrder(Integer idCustomer);
     public abstract Collection<Cart> findAll();
 }

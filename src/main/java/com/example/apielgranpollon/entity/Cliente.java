@@ -5,12 +5,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @Entity(name = "cliente")
 @Table(name ="cliente")
-public class Cliente implements Serializable{
+public class Cliente {
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -21,9 +22,9 @@ public class Cliente implements Serializable{
     @Column(name="lastname")
     private String lastname;
 
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern="yyyy-MM-dd",iso= DateTimeFormat.ISO.DATE)
     @Column(name="dateofbirth")
-    private Date dateofbirth;
+    private LocalDate dateofbirth;
 
     @Column(name="email")
     private String email;

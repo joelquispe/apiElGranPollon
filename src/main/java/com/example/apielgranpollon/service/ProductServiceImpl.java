@@ -45,8 +45,9 @@ public class ProductServiceImpl implements ProductService{
         return repository.findAll();
     }
 
-    @Transactional
+
     @Override
+    @Transactional
     public Collection<Product> findProductByCategory(String category) {
         return repository.findProductByCategory(category);
     }

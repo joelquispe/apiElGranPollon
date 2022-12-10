@@ -43,10 +43,15 @@ public class CartServiceImpl implements CartService {
 
     @Override
     @Transactional(readOnly=true)
-    public Collection<Cart> findByCustomer(Integer idCustomer) {
-        return repository.findByCustomer(idCustomer);
+    public Collection<Cart> findByCustomerInOrder(Integer idCustomer) {
+        return repository.findByCustomerInOrder(idCustomer);
     }
 
+    @Override
+    @Transactional(readOnly=true)
+    public Cart findByCustomerNotOrder(Integer idCustomer) {
+        return repository.findByCustomerNotOrder(idCustomer);
+    }
     @Override
     @Transactional(readOnly=true)
     public Collection<Cart> findAll() {

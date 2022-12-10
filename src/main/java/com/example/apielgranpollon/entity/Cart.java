@@ -20,6 +20,9 @@ public class Cart {
     @Column(name="total")
     private String total;
 
+    @Column(name="isInOrder")
+    private Boolean isInOrder = false;
+
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;

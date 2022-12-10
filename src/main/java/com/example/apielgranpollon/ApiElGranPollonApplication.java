@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Configuration
 @EnableJpaRepositories
+
 @SpringBootApplication(scanBasePackages = "com.example")
 
 public class ApiElGranPollonApplication {
