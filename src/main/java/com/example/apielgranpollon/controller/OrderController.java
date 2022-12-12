@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @RestController
@@ -84,7 +85,7 @@ public class OrderController {
         Collection<Order> orderDb=orderService.findByCustomer(id);
 
         if(orderDb.isEmpty()) {
-            return new ResponseEntity<>("Lista vacía",HttpStatus.FOUND);
+            return new ResponseEntity<>(new ArrayList(),HttpStatus.FOUND);
         }
 
         return new ResponseEntity<>(orderDb,HttpStatus.NOT_FOUND);

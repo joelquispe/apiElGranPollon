@@ -36,6 +36,9 @@ public class Cliente {
     @Column(name="phone")
     private String phone;
 
+    @Column(name="fcmtoken")
+    private String fcmtoken;
+
 
 
 }
