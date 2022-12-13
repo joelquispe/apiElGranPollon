@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @RestController
@@ -84,7 +85,7 @@ public class AddressController {
         Collection<Address> addressDb=addressService.findByCustomer(id);
 
         if(addressDb.isEmpty()) {
-            return new ResponseEntity<>("¡Lista vacía!", HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(new ArrayList() ,HttpStatus.NO_CONTENT);
         }
 
         return new ResponseEntity<>(addressDb,HttpStatus.OK);
