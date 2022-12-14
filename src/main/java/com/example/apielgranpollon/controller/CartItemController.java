@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
@@ -91,7 +92,7 @@ public class CartItemController {
         Collection<CartItem> CartItemsDb=CartItemService.findByCart(cartId);
 
         if(CartItemsDb.isEmpty()) {
-            return new ResponseEntity<>("¡Lista vacía!", HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(new ArrayList(), HttpStatus.NO_CONTENT);
         }
 
         return new ResponseEntity<>(CartItemsDb,HttpStatus.OK);
